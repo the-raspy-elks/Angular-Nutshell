@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { NewsArticle } from './news-article';
+
 @Component({
   selector: 'app-news-articles',
   templateUrl: './news-articles.component.html',
@@ -11,6 +13,8 @@ export class NewsArticlesComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  articles: NewsArticle[];
 
   showArticleForm() {
     if (!this.addArticleButtonClicked) {
