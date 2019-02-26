@@ -1,6 +1,7 @@
 <div class="container">
 
-  <form #articleForm="ngForm" (ngSubmit)="onSubmit()">
+  <form #articleForm="ngForm" (ngSubmit)="onSubmit(articleForm)" novalidate>
+    <h4>New Article</h4>
     <fieldset>
       <label for="title">Article Title</label><br />
       <input name="title" type="text" [(ngModel)]="article.title">

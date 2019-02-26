@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 
 import { NewsArticle } from './news-article';
 import { NewsArticleService } from './news-article.service';
@@ -11,6 +11,10 @@ import { NewsArticleService } from './news-article.service';
 export class NewsArticlesComponent implements OnInit {
 
   constructor(private articleService: NewsArticleService) { }
+
+  ngOnChanges() {
+    this.getArticles();
+  }
 
   ngOnInit() {
     this.getArticles();
@@ -33,11 +37,6 @@ export class NewsArticlesComponent implements OnInit {
   getArticles(): void {
     this.articleService.getArticles().subscribe(a => this.articles = a);
   };
-
-  postArticle(article : NewsArticle): void {
-    this.newsArticleService.postArticle(article)
-    .subscribe(a => this.articles.push(article));
-  }
 
 
 }

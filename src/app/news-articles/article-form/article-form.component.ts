@@ -3,6 +3,7 @@ import { Component, OnInit, Output } from '@angular/core';
 import { NewsArticle } from '../news-article';
 import { NewsArticleService } from '../news-article.service';
 import { EventEmitter } from 'selenium-webdriver';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-article-form',
@@ -11,17 +12,16 @@ import { EventEmitter } from 'selenium-webdriver';
 })
 export class ArticleFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(private articleService: NewsArticleService) { }
 
   ngOnInit() {
   }
 
-  article: NewsArticle;
-  
-  @Output() formSubmit: new EventEmitter();
+  article = new NewsArticle();
 
-  onSubmit() {
-    
+  // @Output() formSubmit = new EventEmitter();
+
+  onSubmit(form: NgForm) {
+    this.articleService.postArticle(this.article).subscribe();
   };
-
 }
