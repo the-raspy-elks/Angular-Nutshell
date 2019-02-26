@@ -19,6 +19,8 @@ export class NewsArticleService {
     return this.http.get<NewsArticle[]>(this._articlesUrl);
   };
 
-
+  postArticle(article: NewsArticle) : Observable<NewsArticle> {
+    return this.http.post<NewsArticle>(this._articlesUrl, article);
+  } 
 
 }

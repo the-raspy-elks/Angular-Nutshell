@@ -5,26 +5,7 @@
   <button (click)="showArticleForm()">Add News Articles</button>
   <hr />
   <div *ngIf="addArticleButtonClicked">
-    <form>
-      <fieldset>
-        <label for="title">Article Title</label><br />
-        <input name="title" type="text">
-      </fieldset>
-      <fieldset>
-          <label for="synopsis">Synopsis</label><br />
-          <input name="synopsis" type="text">
-        </fieldset>
-      <fieldset>
-        <label for="url">URL</label><br />
-        <input name="url" type="url">
-      </fieldset>
-      <fieldset>
-        <label for="date">Date</label><br />
-        <input name="date" type="date">
-      </fieldset>
-
-
-    </form>
+    <app-article-form></app-article-form>
   </div>
   <div *ngFor="let article of articles">
     <h1>{{ article.title }}</h1>

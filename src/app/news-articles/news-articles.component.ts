@@ -34,6 +34,10 @@ export class NewsArticlesComponent implements OnInit {
     this.articleService.getArticles().subscribe(a => this.articles = a);
   };
 
+  postArticle(article : NewsArticle): void {
+    this.newsArticleService.postArticle(article)
+    .subscribe(a => this.articles.push(article));
+  }
 
 
 }

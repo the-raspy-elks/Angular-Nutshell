@@ -1,0 +1,26 @@
+<div class="container">
+
+  <form #articleForm="ngForm" (ngSubmit)="onSubmit()">
+    <fieldset>
+      <label for="title">Article Title</label><br />
+      <input name="title" type="text" [(ngModel)]="article.title">
+    </fieldset>
+    <fieldset>
+      <label for="synopsis">Synopsis</label><br />
+      <input name="synopsis" type="text"  [(ngModel)]="article.synopsis">
+    </fieldset>
+    <fieldset>
+      <label for="url">URL</label><br />
+      <input name="url" type="url"  [(ngModel)]="article.url">
+    </fieldset>
+    <fieldset>
+      <label for="date">Date</label><br />
+      <input name="date" type="date"  [(ngModel)]="article.date">
+    </fieldset>
+    <fieldset>
+      <button>Submit</button>
+    </fieldset>
+    
+  </form>
+  
+</div>
