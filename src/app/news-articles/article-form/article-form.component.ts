@@ -4,6 +4,7 @@ import { NewsArticle } from '../news-article';
 import { NewsArticleService } from '../news-article.service';
 import { EventEmitter } from 'selenium-webdriver';
 import { NgForm } from '@angular/forms';
+import { getLocaleDateTimeFormat } from '@angular/common';
 
 @Component({
   selector: 'app-article-form',
@@ -22,6 +23,9 @@ export class ArticleFormComponent implements OnInit {
   // @Output() formSubmit = new EventEmitter();
 
   onSubmit(form: NgForm) {
+    this.article.date = Date.now();
     this.articleService.postArticle(this.article).subscribe();
   };
+
+
 }

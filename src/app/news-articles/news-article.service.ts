@@ -21,6 +21,13 @@ export class NewsArticleService {
 
   postArticle(article: NewsArticle) : Observable<NewsArticle> {
     return this.http.post<NewsArticle>(this._articlesUrl, article);
-  } 
+  };
+
+  deleteArticle(id: number) : Observable<NewsArticle> {
+    let specificUrl: string = `${this._articlesUrl}/${id}`;
+    return this.http.delete<NewsArticle>(specificUrl);
+  }
+
+
 
 }

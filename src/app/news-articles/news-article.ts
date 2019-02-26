@@ -2,7 +2,7 @@ export class NewsArticle {
     title: string;
     synopsis: string;
     url: string;
-    date: Date;
+    date: number;
     userId: number;
-    Id: number;
+    id: number;
 }

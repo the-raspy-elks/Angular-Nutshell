@@ -38,5 +38,9 @@ export class NewsArticlesComponent implements OnInit {
     this.articleService.getArticles().subscribe(a => this.articles = a);
   };
 
+  deleteArticle(id: number): void {
+    this.articleService.deleteArticle(id).subscribe();
+  }
+
 
 }
