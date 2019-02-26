@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from './message.service';
+import { Message } from './message';
 
 @Component({
     selector: 'app-messages',
@@ -9,7 +10,7 @@ import { MessageService } from './message.service';
 export class MessagesComponent implements OnInit {
     constructor(private messageService: MessageService) {}
 
-    messages;
+    messages: Message[];
 
     ngOnInit() {
         this.messageService
@@ -20,11 +21,7 @@ export class MessagesComponent implements OnInit {
     sendMessage(newMessage) {
         this.messageService
             .postMessage({ message: newMessage, username: 'Admin' })
-            .subscribe(r =>
-                this.messageService
-                    .getMessages()
-                    .subscribe(data => (this.messages = data))
-            );
+            .subscribe((response: Message) => this.messages.push(response));
 
         document.querySelector('#newMessageInput').value = '';
     }
