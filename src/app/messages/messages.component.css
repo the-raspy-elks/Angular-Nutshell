@@ -1,0 +1,27 @@
+.messageList {
+    width: 33%;
+    border: 2px solid lightgray;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-top: 1em;
+}
+
+.message {
+    padding: 0.5em;
+}
+
+.message p {
+    margin: 0
+}
+
+.message:nth-child(odd) {
+    background-color: #eeeeee;
+}
+
+.messageFooter {
+    width: 33%;
+    background-color: lightgray;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 0.5em;
+}

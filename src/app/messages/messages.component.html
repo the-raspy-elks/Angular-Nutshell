@@ -1,11 +1,19 @@
-<div>
-    <div>
-        <div *ngFor="let message of messages">
-            <p>{{ message.message }}</p>
-            <p>User: {{ message.username }}</p>
-            <hr />
+<div class="container">
+    <div class="messageList">
+        <div>
+            <div class="message" *ngFor="let message of messages">
+                <p>{{ message.message }}</p>
+                <p>User: {{ message.username }}</p>
+            </div>
         </div>
     </div>
-    <input id="newMessageInput" #newMessage type="text" />
-    <button (click)="sendMessage(newMessage.value)">Send</button>
+    <div class="messageFooter">
+        <input id="newMessageInput" #newMessage type="text" />
+        <button
+            class="btn ml-2 btn-sm btn-outline-info"
+            (click)="sendMessage(newMessage.value)"
+        >
+            Send
+        </button>
+    </div>
 </div>
