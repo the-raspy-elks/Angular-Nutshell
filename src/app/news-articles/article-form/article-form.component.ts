@@ -2,7 +2,7 @@ import { Component, OnInit, Output } from '@angular/core';
 
 import { NewsArticle } from '../news-article';
 import { NewsArticleService } from '../news-article.service';
-import { EventEmitter } from 'selenium-webdriver';
+import { EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { getLocaleDateTimeFormat } from '@angular/common';
 
@@ -18,13 +18,13 @@ export class ArticleFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  article = new NewsArticle();
+  @Output() refresh = new EventEmitter();
 
-  // @Output() formSubmit = new EventEmitter();
+  article = new NewsArticle();
 
   onSubmit(form: NgForm) {
     this.article.date = Date.now();
-    this.articleService.postArticle(this.article).subscribe();
+    this.articleService.postArticle(this.article).subscribe(r => this.refresh.emit());
   };
 
 

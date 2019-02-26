@@ -5,7 +5,7 @@
   <button (click)="showArticleForm()">Add News Articles</button>
   <hr />
   <div *ngIf="addArticleButtonClicked">
-    <app-article-form></app-article-form>
+    <app-article-form (refresh)="formSubmit($event)"></app-article-form>
   </div>
   <div *ngFor="let article of articles">
     <h1>{{ article.title }}</h1>

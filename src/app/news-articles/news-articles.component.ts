@@ -12,10 +12,6 @@ export class NewsArticlesComponent implements OnInit {
 
   constructor(private articleService: NewsArticleService) { }
 
-  ngOnChanges() {
-    this.getArticles();
-  }
-
   ngOnInit() {
     this.getArticles();
   }
@@ -28,9 +24,12 @@ export class NewsArticlesComponent implements OnInit {
     } else if (this.addArticleButtonClicked) {
       this.addArticleButtonClicked = false;
     }
-
-
   }
+
+  formSubmit(event: any) {
+    this.getArticles();
+    this.showArticleForm();
+  };
 
   addArticleButtonClicked: Boolean = false;
 
@@ -39,7 +38,7 @@ export class NewsArticlesComponent implements OnInit {
   };
 
   deleteArticle(id: number): void {
-    this.articleService.deleteArticle(id).subscribe();
+    this.articleService.deleteArticle(id).subscribe(r => this.getArticles());
   }
 
 
