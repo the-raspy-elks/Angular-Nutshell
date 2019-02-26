@@ -17,5 +17,15 @@ export class MessagesComponent implements OnInit {
             .subscribe(data => (this.messages = data));
     }
 
-    sendMessage() {}
+    sendMessage(newMessage) {
+        this.messageService
+            .postMessage({ message: newMessage, username: 'Admin' })
+            .subscribe(r =>
+                this.messageService
+                    .getMessages()
+                    .subscribe(data => (this.messages = data))
+            );
+
+        document.querySelector('#newMessageInput').value = '';
+    }
 }

@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root'
@@ -12,6 +10,10 @@ export class MessageService {
     allMessages;
 
     getMessages() {
-        return this.http.get('http://localhost:3000/messages').pipe();
+        return this.http.get('http://localhost:3000/messages');
+    }
+
+    postMessage(message) {
+        return this.http.post('http://localhost:3000/messages', message);
     }
 }

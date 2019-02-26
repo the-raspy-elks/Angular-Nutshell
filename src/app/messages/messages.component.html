@@ -2,10 +2,10 @@
     <div>
         <div *ngFor="let message of messages">
             <p>{{ message.message }}</p>
-            <p>{{ message.username }}</p>
+            <p>User: {{ message.username }}</p>
             <hr />
         </div>
     </div>
-    <input type="text" />
-    <button (click)="sendMessage()">Send</button>
+    <input id="newMessageInput" #newMessage type="text" />
+    <button (click)="sendMessage(newMessage.value)">Send</button>
 </div>
