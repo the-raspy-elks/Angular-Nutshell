@@ -12,4 +12,7 @@ export class EventServiceService {
   getEvents(): Observable<Event[]> {
     return this.http.get<Event[]>('http://localhost:3000/events');
   }
+  newEvent(event: Event) {
+    return this.http.post('http://localhost:3000/events', event);
+  }
 }
