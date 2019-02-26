@@ -26,7 +26,11 @@
 
     </form>
   </div>
-  
+  <div *ngFor="let article of articles">
+    <h1>{{ article.title }}</h1>
+    <a href='{{article.url}}' target="_blank" rel="external">Read More!</a>
+    <p>{{ article.synopsis }}</p>
+  </div>
 
 
 

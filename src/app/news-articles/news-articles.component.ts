@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { NewsArticle } from './news-article';
+import { NewsArticleService } from './news-article.service';
 
 @Component({
   selector: 'app-news-articles',
@@ -9,9 +10,10 @@ import { NewsArticle } from './news-article';
 })
 export class NewsArticlesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private articleService: NewsArticleService) { }
 
   ngOnInit() {
+    this.getArticles();
   }
 
   articles: NewsArticle[];
@@ -27,5 +29,11 @@ export class NewsArticlesComponent implements OnInit {
   }
 
   addArticleButtonClicked: Boolean = false;
+
+  getArticles(): void {
+    this.articleService.getArticles().subscribe(a => this.articles = a);
+  };
+
+
 
 }
