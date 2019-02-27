@@ -11,11 +11,13 @@ import { NewsArticleService } from './news-article.service';
 export class NewsArticlesComponent implements OnInit {
     constructor(private articleService: NewsArticleService) {}
 
+    articles: NewsArticle[];
+    addArticleButtonClicked = false;
+
     ngOnInit() {
         this.getArticles();
     }
 
-    articles: NewsArticle[];
 
     showArticleForm() {
         if (!this.addArticleButtonClicked) {
@@ -30,7 +32,6 @@ export class NewsArticlesComponent implements OnInit {
         this.showArticleForm();
     }
 
-    addArticleButtonClicked: Boolean = false;
 
     getArticles(): void {
         this.articleService.getArticles().subscribe(a => (this.articles = a));

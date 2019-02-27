@@ -1,0 +1,31 @@
+<div>
+  New Event:
+  <div>
+    <label
+      >Event name:
+      <input #eventTitle />
+    </label>
+  </div>
+    <div>
+    <label
+      >Event Date:
+      <input #eventDate />
+    </label>
+  </div>
+  <div>
+    <label
+      >Event Location:
+      <input #eventLocation />
+    </label>
+  </div>
+    <button (click)="NewEventInput(eventTitle.value, eventDate.value, eventLocation.value, 1)">Submit</button>
+  </div>
+
+
+<ul>
+  <li *ngFor="let event of EventList">
+    <p>Title: {{ event.title }}</p>
+    <p>Date: {{ event.date }}</p>
+    <p>Location: {{ event.location }}</p>
+  </li>
+</ul>
