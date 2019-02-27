@@ -16,7 +16,8 @@ export class NewsArticleService {
   constructor(private http: HttpClient) { }
 
   getArticles() : Observable<NewsArticle[]>{
-    return this.http.get<NewsArticle[]>(this._articlesUrl);
+    let descArticleOrderUrl = `${this._articlesUrl}/?_sort=date&_order=desc`;
+    return this.http.get<NewsArticle[]>(descArticleOrderUrl);
   };
 
   postArticle(article: NewsArticle) : Observable<NewsArticle> {
