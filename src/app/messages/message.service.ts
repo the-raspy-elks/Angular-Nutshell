@@ -14,6 +14,13 @@ export class MessageService {
     }
 
     postMessage(message: Message): Observable<object> {
-        return this.http.post<Message>('http://localhost:3000/messages', message);
+        return this.http.post<Message>(
+            'http://localhost:3000/messages',
+            message
+        );
+    }
+
+    deleteMessage(messageId: number): Observable<void> {
+        return this.http.delete<void>(`http://localhost:3000/messages/${messageId}`);
     }
 }

@@ -1,5 +1,5 @@
 .messageList {
-    width: 33%;
+    width: 45%;
     border: 2px solid lightgray;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -8,10 +8,13 @@
 
 .message {
     padding: 0.5em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .message p {
-    margin: 0
+    margin: 0;
 }
 
 .message:nth-child(odd) {
@@ -19,7 +22,9 @@
 }
 
 .messageFooter {
-    width: 33%;
+    display: flex;
+    justify-content: space-between;
+    width: 45%;
     background-color: lightgray;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;

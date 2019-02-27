@@ -1,8 +1,20 @@
 <div class="container">
     <div class="messageList">
+        <div *ngIf="messages.length === 0">
+            <p>No messages yet. Go ahead and send one ya dummy</p>
+        </div>
         <div class="message" *ngFor="let message of messages">
-            <p>{{ message.message }}</p>
-            <p>User: {{ message.username }}</p>
+            <div class="messageContent">
+                <p>{{ message.message }}</p>
+                <p>User: {{ message.username }}</p>
+            </div>
+            <button
+                *ngIf="message.username == 'Admin'"
+                (click)="deleteMessage(message.id)"
+                class="btn btn-outline-danger btn-sm"
+            >
+                Delete
+            </button>
         </div>
     </div>
     <div class="messageFooter">

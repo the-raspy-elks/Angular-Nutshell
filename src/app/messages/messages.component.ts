@@ -19,10 +19,23 @@ export class MessagesComponent implements OnInit {
     }
 
     sendMessage(newMessage) {
+        const newId: number = Math.floor(Math.random() * 1000000);
+
         this.messageService
-            .postMessage({ message: newMessage, username: 'Admin' })
+            .postMessage({ message: newMessage, username: 'Admin', id: newId })
             .subscribe((response: Message) => this.messages.push(response));
 
-        document.querySelector('#newMessageInput').value = '';
+        (document.querySelector('#newMessageInput') as HTMLInputElement).value =
+            '';
+    }
+
+    deleteMessage(messageId: number) {
+        this.messageService
+            .deleteMessage(messageId)
+            .subscribe(() =>
+                this.messageService
+                    .getMessages()
+                    .subscribe(data => (this.messages = data))
+            );
     }
 }
