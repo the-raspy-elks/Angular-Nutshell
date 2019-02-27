@@ -4,42 +4,41 @@ import { NewsArticle } from './news-article';
 import { NewsArticleService } from './news-article.service';
 
 @Component({
-  selector: 'app-news-articles',
-  templateUrl: './news-articles.component.html',
-  styleUrls: ['./news-articles.component.css']
+    selector: 'app-news-articles',
+    templateUrl: './news-articles.component.html',
+    styleUrls: ['./news-articles.component.css']
 })
 export class NewsArticlesComponent implements OnInit {
+    constructor(private articleService: NewsArticleService) {}
 
-  constructor(private articleService: NewsArticleService) { }
-
-  ngOnInit() {
-    this.getArticles();
-  }
-
-  articles: NewsArticle[];
-
-  showArticleForm() {
-    if (!this.addArticleButtonClicked) {
-      this.addArticleButtonClicked = true;
-    } else if (this.addArticleButtonClicked) {
-      this.addArticleButtonClicked = false;
+    ngOnInit() {
+        this.getArticles();
     }
-  }
 
-  formSubmit(event: any) {
-    this.getArticles();
-    this.showArticleForm();
-  };
+    articles: NewsArticle[];
 
-  addArticleButtonClicked: Boolean = false;
+    showArticleForm() {
+        if (!this.addArticleButtonClicked) {
+            this.addArticleButtonClicked = true;
+        } else if (this.addArticleButtonClicked) {
+            this.addArticleButtonClicked = false;
+        }
+    }
 
-  getArticles(): void {
-    this.articleService.getArticles().subscribe(a => this.articles = a);
-  };
+    formSubmit(event: any) {
+        this.getArticles();
+        this.showArticleForm();
+    }
 
-  deleteArticle(id: number): void {
-    this.articleService.deleteArticle(id).subscribe(r => this.getArticles());
-  }
+    addArticleButtonClicked: Boolean = false;
 
+    getArticles(): void {
+        this.articleService.getArticles().subscribe(a => (this.articles = a));
+    }
 
+    deleteArticle(id: number): void {
+        this.articleService
+            .deleteArticle(id)
+            .subscribe(r => this.getArticles());
+    }
 }
