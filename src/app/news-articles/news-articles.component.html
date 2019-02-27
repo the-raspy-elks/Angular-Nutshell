@@ -1,0 +1,22 @@
+<p>
+  news-articles works!
+</p>
+<div>
+  <button (click)="showArticleForm()">Add News Articles</button>
+  <hr />
+  <div *ngIf="addArticleButtonClicked">
+    <app-article-form (refresh)="formSubmit($event)"></app-article-form>
+  </div>
+  <div *ngFor="let article of articles">
+    <h1>{{ article.title }}</h1>
+    <a href='{{article.url}}' target="_blank" rel="external">Read More!</a>
+    <p>{{ article.synopsis }}</p>
+    <button (click)='deleteArticle(article.id)'>Delete</button>
+  </div>
+
+
+
+
+
+
+</div>
