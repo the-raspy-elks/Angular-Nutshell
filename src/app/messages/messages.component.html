@@ -1,6 +1,6 @@
 <div class="container">
     <div class="messageList">
-        <div *ngIf="messages.length === 0">
+        <div *ngIf="messages?.length === 0">
             <p>No messages yet. Go ahead and send one ya dummy</p>
         </div>
         <div class="message" *ngFor="let message of messages">
