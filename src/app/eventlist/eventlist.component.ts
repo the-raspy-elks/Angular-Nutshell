@@ -10,6 +10,7 @@ import { EventServiceService } from '../event-service.service';
 export class EventlistComponent implements OnInit {
     EventList: Event[];
     selectedEvent: Event;
+    newEvent: boolean;
     constructor(private eventService: EventServiceService) {}
 
     NewEventInput(t: string, d: Date, l: string, uId: number) {
@@ -47,6 +48,10 @@ export class EventlistComponent implements OnInit {
     isEditClicked(event: Event): void {
         this.selectedEvent = event;
     }
+    isNewEventClicked(): void {
+        this.newEvent = !this.newEvent;
+    }
+
     ngOnInit() {
         this.eventService
             .getEvents()

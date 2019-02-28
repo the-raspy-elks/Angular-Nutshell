@@ -1,26 +1,28 @@
-<div>
-  New Event:
-  <div>
-    <label
-      >Event name:
-      <input #eventTitle />
-    </label>
-  </div>
-    <div>
-    <label
-      >Event Date:
-      <input type=date #eventDate />
-    </label>
-  </div>
-  <div>
-    <label
-      >Event Location:
-      <input #eventLocation />
-    </label>
-  </div>
-    <button (click)="NewEventInput(eventTitle.value, eventDate.value, eventLocation.value, 1)">Submit</button>
-</div>
-
+<button (click)="isNewEventClicked()">New Event</button>
+    <div *ngIf="newEvent == true">
+        <div>
+        Add Event:
+        <div>
+            <label
+            >Event name:
+            <input #eventTitle />
+            </label>
+        </div>
+            <div>
+            <label
+            >Event Date:
+            <input type=date #eventDate />
+            </label>
+        </div>
+        <div>
+            <label
+            >Event Location:
+            <input #eventLocation />
+            </label>
+        </div>
+            <button (click)="NewEventInput(eventTitle.value, eventDate.value, eventLocation.value, 1)">Submit</button>
+        </div>
+    </div>
 
 <ul>
   <li *ngFor="let event of EventList">
