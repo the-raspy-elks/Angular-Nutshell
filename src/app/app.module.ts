@@ -10,6 +10,16 @@ import { FormsModule } from '@angular/forms';
 import { NewsArticlesComponent } from './news-articles/news-articles.component';
 import { ArticleFormComponent } from './news-articles/article-form/article-form.component';
 import { NewsArticleService } from './news-articles/news-article.service';
+import { RegisterComponent } from './register/register.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { RouterModule, Routes } from '@angular/router';
+
+
+const appRoutes: Routes = [
+    { path: 'events', component: EventlistComponent},
+    { path: 'news-articles', component: NewsArticlesComponent},
+    { path: 'messages', component: MessagesComponent}
+];
 
 @NgModule({
   declarations: [
@@ -17,12 +27,15 @@ import { NewsArticleService } from './news-articles/news-article.service';
     EventlistComponent,
     MessagesComponent,
         NewsArticlesComponent,
-        ArticleFormComponent
+        ArticleFormComponent,
+        RegisterComponent,
+        NavbarComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [EventServiceService, MessageService, NewsArticleService],
   bootstrap: [AppComponent]
