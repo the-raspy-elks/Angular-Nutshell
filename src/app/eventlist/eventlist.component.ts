@@ -11,6 +11,7 @@ export class EventlistComponent implements OnInit {
     EventList: Event[];
     selectedEvent: Event;
     newEvent: boolean;
+    todaysDate = Date;
     constructor(private eventService: EventServiceService) {}
 
     NewEventInput(t: string, d: Date, l: string, uId: number) {
