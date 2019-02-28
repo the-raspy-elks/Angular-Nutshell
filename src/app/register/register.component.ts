@@ -19,6 +19,6 @@ export class RegisterComponent implements OnInit {
   }
 
   registerUser(form: NgForm) {
-      this.registerService.registerUser(this.user).subscribe();
+      this.registerService.registerUser(this.user).subscribe(u => sessionStorage.setItem('currentUser', JSON.stringify(u)));
   }
 }
