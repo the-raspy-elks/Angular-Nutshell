@@ -21,6 +21,14 @@ export class MessageService {
     }
 
     deleteMessage(messageId: number): Observable<void> {
-        return this.http.delete<void>(`http://localhost:3000/messages/${messageId}`);
+        return this.http.delete<void>(
+            `http://localhost:3000/messages/${messageId}`
+        );
+    }
+
+    editMessage(editedMessage: Message, messageId: number): Observable<object> {
+        return this.http.patch(`http://localhost:3000/messages/${messageId}`, {
+            message: editedMessage
+        });
     }
 }

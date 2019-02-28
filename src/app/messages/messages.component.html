@@ -4,17 +4,56 @@
             <p>No messages yet. Go ahead and send one ya dummy</p>
         </div>
         <div class="message" *ngFor="let message of messages">
-            <div class="messageContent">
-                <p>{{ message.message }}</p>
-                <p>User: {{ message.username }}</p>
+            <div *ngIf="editMessageId !== message.id">
+                <div class="messageContent">
+                    <p>{{ message.message }}</p>
+                    <p>User: {{ message.username }}</p>
+                </div>
+                <button
+                    *ngIf="
+                        message.username == 'Admin' &&
+                        editMessageId !== message.id
+                    "
+                    (click)="toggleEdit(message.id)"
+                    class="btn btn-warning btn-sm"
+                >
+                    Edit
+                </button>
+                <button
+                    *ngIf="message.username == 'Admin'"
+                    (click)="deleteMessage(message.id)"
+                    class="btn btn-danger btn-sm"
+                >
+                    Delete
+                </button>
             </div>
-            <button
-                *ngIf="message.username == 'Admin'"
-                (click)="deleteMessage(message.id)"
-                class="btn btn-outline-danger btn-sm"
-            >
-                Delete
-            </button>
+
+            <div *ngIf="editMessageId === message.id">
+                <div class="messageContent">
+                    <input
+                        #editedMessage
+                        type="text"
+                        value="{{ message.message }}"
+                    />
+                </div>
+                <button
+                    *ngIf="
+                        message.username == 'Admin' &&
+                        editMessageId === message.id
+                    "
+                    (click)="editMessage(editedMessage.value, message.id)"
+                    class="btn btn-warning btn-sm"
+                >
+                    Save
+                </button>
+                <button
+                    *ngIf="message.username == 'Admin'"
+                    (click)="editMessageId=0"
+                    class="btn btn-danger btn-sm"
+                >
+                    Cancel
+                </button>
+            </div>
         </div>
     </div>
     <div class="messageFooter">
