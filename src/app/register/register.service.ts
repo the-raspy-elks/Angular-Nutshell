@@ -14,4 +14,9 @@ export class RegisterService {
     registerUser(user: User): Observable<User> {
       return this.http.post<User>(this.usersUrl, user);
     }
+
+    searchUsers(): Observable<User[]> {
+        // const specificUrl = `${this.usersUrl}/${user.id}`;
+        return this.http.get<User[]>(this.usersUrl);
+    }
 }
