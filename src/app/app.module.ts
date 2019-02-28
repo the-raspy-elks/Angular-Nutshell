@@ -21,7 +21,8 @@ const appRoutes: Routes = [
     { path: 'news-articles', component: NewsArticlesComponent },
     { path: 'messages', component: MessagesComponent },
     { path: 'register', component: RegisterComponent },
-    { path: 'login', component: LoginComponent }
+    { path: 'login', component: LoginComponent },
+    { path: '', redirectTo: 'login', pathMatch: 'full'}
 ];
 
 @NgModule({

@@ -1,14 +1,14 @@
 <div *ngIf="!currentUser">
     <h1>Login</h1>
-    <form #loginForm="ngForm" (ngSubmit)="loginUser(userName.value)" novalidate>
+    <form #loginForm="ngForm" (ngSubmit)="loginUser(userName.value, password.value)" novalidate>
         <fieldset>
             <label for="username">UserName</label>
             <input #userName name="username" type="text" />
         </fieldset>
-        <!-- <fieldset>
+        <fieldset>
                 <label for="password">Password</label>
-                <input name="password" type="password">
-            </fieldset> -->
+                <input #password name="password" type="password">
+            </fieldset>
         <fieldset>
             <button>Submit</button>
         </fieldset>

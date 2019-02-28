@@ -12,4 +12,9 @@ export class LoginService {
     loginUser(logginInUser: string): Observable<User[]> {
          return this.http.get<User[]>(`http://localhost:3000/users?username=${logginInUser}`);
     }
+
+    getCurrentUser() {
+        const currentUser = localStorage.getItem('user');
+        return currentUser;
+    }
 }
