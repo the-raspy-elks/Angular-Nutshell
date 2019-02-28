@@ -15,4 +15,10 @@ export class EventServiceService {
   newEvent(event: Event) {
     return this.http.post('http://localhost:3000/events', event);
   }
+  editEvent(event: Event, id: number): Observable<Event> {
+      return this.http.put<Event>(`http://localhost:3000/events/${id}`, event);
+  }
+  deleteEvent(id: number): Observable<{}> {
+    return this.http.delete(`http://localhost:3000/events/${id}`);
+  }
 }

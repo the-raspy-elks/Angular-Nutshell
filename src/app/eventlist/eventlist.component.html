@@ -19,7 +19,7 @@
     </label>
   </div>
     <button (click)="NewEventInput(eventTitle.value, eventDate.value, eventLocation.value, 1)">Submit</button>
-  </div>
+</div>
 
 
 <ul>
@@ -27,5 +27,31 @@
     <p>Title: {{ event.title }}</p>
     <p>Date: {{ event.date }}</p>
     <p>Location: {{ event.location }}</p>
+    <button (click)="isEditClicked(event)">Edit</button>
+    <button (click)="DeleteEvent(event.id)">Delete</button>
+    <div *ngIf="selectedEvent && event.id === selectedEvent.id">
+        <div>
+            New Event:
+            <div>
+              <label
+                >Event name:
+                <input [defaultValue]="selectedEvent.title" #editEventTitle />
+              </label>
+            </div>
+              <div>
+              <label
+                >Event Date:
+                <input [defaultValue]="selectedEvent.date" #editEventDate />
+              </label>
+            </div>
+            <div>
+              <label
+                >Event Location:
+                <input [defaultValue]="selectedEvent.location" #editEventLocation />
+              </label>
+            </div>
+          </div>
+          <button (click)="EditEvent(editEventTitle.value, editEventDate.value, editEventLocation.value, 1, event.id)">Submit Edit</button>
+    </div>
   </li>
 </ul>
