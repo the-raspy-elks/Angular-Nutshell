@@ -21,7 +21,11 @@ export class EventlistComponent implements OnInit {
                 date: d,
                 location: l
             } as Event)
-            .subscribe((event: Event) => this.EventList.push(event));
+            .subscribe(r =>
+                this.eventService
+                    .getEvents()
+                    .subscribe(response => (this.EventList = response))
+                    );
     }
     DeleteEvent(id: number): void {
         this.eventService
