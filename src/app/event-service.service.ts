@@ -11,7 +11,7 @@ export class EventServiceService {
     constructor(private http: HttpClient) {}
     getEvents(): Observable<Event[]> {
         return this.http.get<Event[]>(
-            `${this.eventUrl}?_sort=date&_order=desc`
+            `${this.eventUrl}?_sort=date&_order=asc`
         );
     }
     newEvent(event: Event) {
