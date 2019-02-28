@@ -13,32 +13,40 @@ import { NewsArticleService } from './news-articles/news-article.service';
 import { RegisterComponent } from './register/register.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RouterModule, Routes } from '@angular/router';
-
+import { LoginComponent } from './login/login.component';
+import { LoginService } from './login/login.service';
 
 const appRoutes: Routes = [
-    { path: 'events', component: EventlistComponent},
-    { path: 'news-articles', component: NewsArticlesComponent},
-    { path: 'messages', component: MessagesComponent}
+    { path: 'events', component: EventlistComponent },
+    { path: 'news-articles', component: NewsArticlesComponent },
+    { path: 'messages', component: MessagesComponent },
+    { path: 'register', component: RegisterComponent },
+    { path: 'login', component: LoginComponent }
 ];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    EventlistComponent,
-    MessagesComponent,
+    declarations: [
+        AppComponent,
+        EventlistComponent,
+        MessagesComponent,
         NewsArticlesComponent,
         ArticleFormComponent,
         RegisterComponent,
-        NavbarComponent
-  ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    FormsModule,
-    RouterModule.forRoot(appRoutes)
-  ],
-  providers: [EventServiceService, MessageService, NewsArticleService],
-  bootstrap: [AppComponent]
-
+        NavbarComponent,
+        LoginComponent
+    ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        FormsModule,
+        RouterModule.forRoot(appRoutes)
+    ],
+    providers: [
+        EventServiceService,
+        MessageService,
+        NewsArticleService,
+        LoginService
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule {}
