@@ -7,25 +7,22 @@ import { NgForm } from '@angular/forms';
 import { getLocaleDateTimeFormat } from '@angular/common';
 
 @Component({
-  selector: 'app-article-form',
-  templateUrl: './article-form.component.html',
-  styleUrls: ['./article-form.component.css']
+    selector: 'app-article-form',
+    templateUrl: './article-form.component.html',
+    styleUrls: ['./article-form.component.css']
 })
 export class ArticleFormComponent implements OnInit {
+    article = new NewsArticle();
 
-  constructor(private articleService: NewsArticleService) { }
+    @Output() refresh = new EventEmitter();
+    constructor(private articleService: NewsArticleService) {}
 
-  ngOnInit() {
-  }
+    ngOnInit() {}
 
-  @Output() refresh = new EventEmitter();
-
-  article = new NewsArticle();
-
-  onSubmit(form: NgForm) {
-    this.article.date = Date.now();
-    this.articleService.postArticle(this.article).subscribe(r => this.refresh.emit());
-  };
-
-
+    onSubmit(form: NgForm) {
+        this.article.date = Date.now();
+        this.articleService
+            .postArticle(this.article)
+            .subscribe(r => this.refresh.emit());
+    }
 }

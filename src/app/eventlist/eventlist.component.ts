@@ -12,7 +12,7 @@ export class EventlistComponent implements OnInit {
     selectedEvent: Event;
     constructor(private eventService: EventServiceService) {}
 
-    NewEventInput(t: string, d: string, l: string, uId: number) {
+    NewEventInput(t: string, d: Date, l: string, uId: number) {
         this.eventService
             .newEvent({
                 userId: uId,
@@ -31,7 +31,7 @@ export class EventlistComponent implements OnInit {
                     .subscribe(response => (this.EventList = response))
             );
     }
-    EditEvent(t: string, d: string, l: string, uId: number, id: number) {
+    EditEvent(t: string, d: Date, l: string, uId: number, id: number) {
         this.eventService.editEvent({
             userId: uId,
             title: t,

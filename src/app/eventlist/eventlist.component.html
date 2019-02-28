@@ -9,7 +9,7 @@
     <div>
     <label
       >Event Date:
-      <input #eventDate />
+      <input type=date #eventDate />
     </label>
   </div>
   <div>
@@ -41,7 +41,7 @@
               <div>
               <label
                 >Event Date:
-                <input [defaultValue]="selectedEvent.date" #editEventDate />
+                <input type=date [defaultValue]="selectedEvent.date" #editEventDate />
               </label>
             </div>
             <div>
