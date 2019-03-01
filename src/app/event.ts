@@ -1,7 +1,7 @@
 export class Event {
   userId: number;
   title: string;
-  date: string;
+  date: Date;
   location: string;
   id: number;
 }
