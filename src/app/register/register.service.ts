@@ -19,4 +19,8 @@ export class RegisterService {
         // const specificUrl = `${this.usersUrl}/${user.id}`;
         return this.http.get<User[]>(this.usersUrl);
     }
+    getCurrentUser() {
+        const currentUser = localStorage.getItem('user');
+        return currentUser;
+    }
 }
