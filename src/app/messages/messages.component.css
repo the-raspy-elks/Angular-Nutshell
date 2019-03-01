@@ -17,7 +17,7 @@
     margin: 0;
 }
 
-.message:nth-child(odd) {
+.messageColor:nth-child(odd) {
     background-color: #eeeeee;
 }
 

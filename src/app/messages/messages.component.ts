@@ -11,11 +11,16 @@ export class MessagesComponent implements OnInit {
     constructor(private messageService: MessageService) {}
 
     messages: Message[];
+    editMessageId = 0;
 
     ngOnInit() {
         this.messageService
             .getMessages()
             .subscribe(data => (this.messages = data));
+    }
+
+    toggleEdit(messageId) {
+        this.editMessageId = messageId;
     }
 
     sendMessage(newMessage) {
@@ -37,5 +42,16 @@ export class MessagesComponent implements OnInit {
                     .getMessages()
                     .subscribe(data => (this.messages = data))
             );
+    }
+
+    editMessage(editedMessage: Message, messageId: number) {
+        this.messageService
+            .editMessage(editedMessage, messageId)
+            .subscribe(() => {
+                this.editMessageId = 0;
+                this.messageService
+                    .getMessages()
+                    .subscribe(data => (this.messages = data));
+            });
     }
 }
